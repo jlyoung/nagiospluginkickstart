@@ -16,6 +16,11 @@ def main():
 	                  action="store", type="int", dest="critical",
 	                  help="critical threshold")
 	(options, args) = parser.parse_args()
+	# Make warning and critical command line arguments mandatory.
+	if ((options.warning is None) or (options.critical is None)):
+		print "Incorrect usage. warning and critical thresholds are mandatory."
+		parser.print_help()
+		sys.exit(3)
 	# Execute the plugin check logic.
 	check_execution = perform_check()
 	# Evaluate the results of the check execution against the thresholds.
