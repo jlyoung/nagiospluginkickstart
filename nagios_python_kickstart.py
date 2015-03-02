@@ -59,7 +59,7 @@ def process_results(check_execution, warning, critical):
 	# Exit with Nagios' UNKNOWN status code if 
 	# check_execution's return code is non-zero.
 	if check_execution['return_code'] != 0:
-		print "An unknown error occured: %s | " % (check_execution['result'])
+		print "An unknown error occured: %s" % (check_execution['result'])
 		sys.exit(3)
 	# Exit with CRITICAL status code if CRITICAL threshold is exceeded.
 	# Display Nagios performance data in format expected by pnp4nagios.
